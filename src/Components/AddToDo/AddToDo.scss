@@ -1,0 +1,22 @@
+.AddToDo {
+  width: 100%;
+  gap: 20px;
+  padding: 1% 0%;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+
+  &__label {
+    font-size: larger;
+    font-weight: bold;
+  }
+  &__button{
+    padding: 5px 10px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: var(--blue);
+  }
+}

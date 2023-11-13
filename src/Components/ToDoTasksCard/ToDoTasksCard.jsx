@@ -10,9 +10,18 @@ const ToDoTasksCard = ({ todo, updateTheData }) => {
   //converting into human readable data and time
   const createdAt = new Date(todo.attributes.createdAt);
   const updatedAt = new Date(todo.attributes.updatedAt);
+  const options = { 
+    year: 'numeric', 
+    month: 'long', 
+    day: 'numeric', 
+    hour: '2-digit', 
+    minute: '2-digit', 
+    second: '2-digit', 
+    timeZoneName: 'short' 
+  };
 
-  const createdAtDate = createdAt.toLocaleString("en-US");
-  const updatedAtDate = updatedAt.toLocaleString("en-US");
+  const createdAtDate = createdAt.toLocaleString("en-US",options);
+  const updatedAtDate = updatedAt.toLocaleString("en-US",options);
 
   const handleHoverIn = () => {
     setDisplayButtons(true);

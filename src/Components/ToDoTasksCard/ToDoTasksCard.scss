@@ -10,6 +10,7 @@
   background-color: var(--blue);
 
   &__heading {
+    height: 30px;
     word-wrap: break-word;
     word-break: break-all;
   }
@@ -21,7 +22,7 @@
     padding: 20px;
     right: 0;
     top: 0;
-    
+
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -30,15 +31,27 @@
     border-bottom-right-radius: 15px;
     background-color: rgb(255, 255, 255, 0.5);
   }
+
+  &__updateButton {
+    cursor: pointer;
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
 }
 
-@media screen and (max-width:540px) {
+@media screen and (max-width: 540px) {
   .ToDoTasksCard {
     padding: 10px;
     border-radius: 10px;
 
-    &__information{
+    &__information {
       font-size: smaller;
+    }
+
+    &__buttons {
+      border-top-right-radius: 10px;
+      border-bottom-right-radius: 10px;
     }
   }
 }

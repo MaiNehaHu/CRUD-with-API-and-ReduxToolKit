@@ -12,13 +12,12 @@ const DeleteToDo = ({ idtoDelete, updateTheData }) => {
       .delete(url)
       .then(() => {
         console.log("Deleted");
+        //finally update the JSX by fetching Data in Body
+        updateTheData();
       })
       .catch((err) => {
-        console.log("Unable to delete due to: ", err);
+        console.log("Unable to delete due to: ", err.message);
       });
-
-    //finally update the JSX by fetching Data in Body
-    updateTheData();
   };
 
   return (

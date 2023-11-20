@@ -32,11 +32,12 @@ const AddToDo = ({ updateTheData }) => {
 
     await axios
       .post(urlEndPoint, taskData)
-      .then(() => console.log("Added"))
-      .catch((err) => console.log("Could not POST due to error: ", err));
-
-    //Call the getData function to fetch data
-    updateTheData();
+      .then(() => {
+        console.log("Added");
+        //Call the getData function to fetch data
+        updateTheData();
+      })
+      .catch((err) => console.log("Could not POST due to error: ", err.message));
   };
 
   return (
@@ -56,7 +57,7 @@ const AddToDo = ({ updateTheData }) => {
           }
         }}
       />
-      
+
       <button
         onClick={handleAdding}
         type="button"

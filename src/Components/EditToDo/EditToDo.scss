@@ -1,6 +1,8 @@
-.EditButton{
-    cursor: pointer;
-    &:hover{
-        transform: scale(1.1);
-    }
+.EditButton {
+  cursor: pointer;
+  font-size: larger;
+
+  &:hover {
+    transform: scale(1.1);
+  }
 }

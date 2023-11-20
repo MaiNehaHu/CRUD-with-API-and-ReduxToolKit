@@ -7,7 +7,7 @@ import NavBar from "./Components/NavBar/NavBar";
 function App() {
   return (
     <React.Fragment>
-      <BrowserRouter basename="/JungleTech">
+      <BrowserRouter basename="/To-Do-App-with-API">
         <Routes>
           <Route
             path="/"

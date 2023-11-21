@@ -1,22 +1,52 @@
 .AddToDo {
-  width: 100%;
-  gap: 20px;
-  padding: 1% 0%;
+  gap: 5%;
+  margin: 1% 0%;
   display: flex;
+  flex-direction: row;
   align-items: center;
-  flex-wrap: wrap;
-  justify-content: center;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  justify-content: space-between;
 
-  &__label {
-    font-size: larger;
-    font-weight: bold;
-  }
-  &__button{
-    padding: 5px 10px;
-    font-weight: bold;
+  &__button {
+    white-space: nowrap;
+
     cursor: pointer;
-    border-radius: 5px;
-    background-color: var(--blue);
+    color: white;
+    padding: 10px;
+
+    font-size: large;
+    border-radius: 1rem;
+    font-family: "Righteous", cursive;
+    background-color: rgb(108, 29, 255);
+  }
+
+  &__input {
+    width: 100%;
+    height: 100%;
+
+    padding: 5px;
+    font-size: large;
+    font-family: "Righteous", cursive;
+
+    &:focus {
+      border: 5px solid var(--fav-color);
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .AddToDo {
+    &__header {
+      margin: 4% 0%;
+    }
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .AddToDo {
+    &__header {
+      h1 {
+        font-size: large;
+      }
+    }
   }
 }

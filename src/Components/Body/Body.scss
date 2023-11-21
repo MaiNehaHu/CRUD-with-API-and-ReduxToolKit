@@ -1,20 +1,23 @@
 .Body {
   width: 100%;
   height: 100%;
-  padding: 20px 5%;
+  padding: 15px 5%;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 
   &__cardContainer {
     width: 100%;
     height: 100%;
     margin-top: 30px;
-    &__cards {
-      height: 100%;
-      width: 100%;
-      gap: 30px;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    }
+
+    color: white;
+    font-size: large;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    list-style: none;
+    font-family: "Righteous", cursive;
   }
 
   &__errorMessage {
@@ -28,19 +31,14 @@
   }
 }
 
-@media screen and (max-width:540px) {
-  .Body{
-    &__heading{
+@media screen and (max-width: 540px) {
+  .Body {
+    &__heading {
       font-size: medium;
     }
 
     &__cardContainer {
       margin-top: 20px;
-      &__cards {
-        gap: 15px;
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      }
     }
   }
 }

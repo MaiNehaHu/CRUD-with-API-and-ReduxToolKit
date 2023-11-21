@@ -1,18 +1,48 @@
 .ToDoTasksCard {
-  width: auto;
-  height: 100%;
-  padding: 16px;
   position: relative;
-  height: fit-content;
-  border-radius: 15px;
+  margin-block: 20px;
+  width: 100%;
+  padding: 20px;
+  border: 1px solid white;
 
-  border: 1px solid black;
-  background-color: var(--blue);
+  &__header {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
 
-  &__heading {
-    height: 30px;
-    word-wrap: break-word;
-    word-break: break-all;
+    &__buttons {
+      display: flex;
+      gap: 20px;
+      flex-direction: row;
+
+      &__updateButton {
+        cursor: pointer;
+        font-size: larger;
+
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
+    }
+
+    &__heading {
+      height: 30px;
+      word-wrap: break-word;
+      word-break: break-all;
+    }
+
+    &__inputField {
+      padding: 2px;
+      width: 60%;
+      font-size: large;
+      font-family: "Righteous", cursive;
+
+      &:focus {
+        border: 5px solid var(--fav-color);
+      }
+    }
   }
 
   &__buttons {
@@ -42,12 +72,7 @@
 
 @media screen and (max-width: 540px) {
   .ToDoTasksCard {
-    padding: 10px;
-    border-radius: 10px;
-
-    &__information {
-      font-size: smaller;
-    }
+    font-size: smaller;
 
     &__buttons {
       border-top-right-radius: 10px;

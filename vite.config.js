@@ -5,5 +5,5 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
 
   plugins: [react()],
-  base:"/To-Do-App-with-API"
+  base:"/CRUD-with-API"
 })

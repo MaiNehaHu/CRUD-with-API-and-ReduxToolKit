@@ -1,10 +1,13 @@
 import React from "react";
-import "./DeleteToDo.scss";
-import axios from "axios";
+import { ReadList } from "../../Store/Slices/ReadSlice";
 import { MdDelete } from "react-icons/md";
+import { useDispatch } from "react-redux";
+import axios from "axios";
+import "./DeleteToDo.scss";
 
-const DeleteToDo = ({ idtoDelete, updateTheData }) => {
+const DeleteToDo = ({ idtoDelete }) => {
   const className = "DeleteButton";
+  const dispatch = useDispatch();
   const url = `https://api.staging.sumize.io/api/todos/${idtoDelete}`;
 
   const deleteToDo = async () => {
@@ -13,7 +16,7 @@ const DeleteToDo = ({ idtoDelete, updateTheData }) => {
       .then(() => {
         console.log("Deleted");
         //finally update the JSX by fetching Data in Body
-        updateTheData();
+        dispatch(ReadList());
       })
       .catch((err) => {
         console.log("Unable to delete due to: ", err.message);

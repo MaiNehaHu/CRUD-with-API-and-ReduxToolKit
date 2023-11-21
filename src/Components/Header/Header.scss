@@ -1,0 +1,26 @@
+.Header {
+  &__header {
+    width: 100%;
+    color: white;
+    text-align: center;
+    margin: 2% 0%;
+    padding: 0% 5px;
+
+    border-radius: 1rem;
+    background-color: var(--fav-color);
+
+    h1 {
+      display: flex;
+      align-items: center;
+      font-weight: lighter;
+      justify-content: space-evenly;
+      font-family: "Righteous", cursive;
+
+      #count {
+        font-size: 50px;
+        font-weight: lighter;
+        font-family: "Monoton", cursive;
+      }
+    }
+  }
+}

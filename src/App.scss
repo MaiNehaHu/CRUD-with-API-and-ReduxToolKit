@@ -3,21 +3,31 @@
   margin: 0;
   box-sizing: border-box;
 }
+body {
+  padding: 5% 15%;
+  background-color: black;
+}
+
 :root {
   --blue: rgb(146, 233, 255);
+  --fav-color: rgb(152, 138, 255);
 }
+
 .inputField {
   border-radius: 5px;
   height: 30px;
-  padding: 3px ;
+  padding: 3px;
   font-size: medium;
   &:focus {
     background-color: rgb(220, 248, 255);
   }
 }
 
-@media screen and (max-width:540px) {
+@media screen and (max-width: 540px) {
   .inputField {
     font-size: small;
+  }
+  body {
+    padding: 10% 15%;
   }
 }

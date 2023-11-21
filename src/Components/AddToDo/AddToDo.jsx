@@ -1,11 +1,15 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { ReadList } from "../../Store/Slices/ReadSlice";
 import "./AddToDo.scss";
 import axios from "axios";
+
 const urlEndPoint = "https://api.staging.sumize.io/api/todos";
 
-const AddToDo = ({ updateTheData }) => {
+const AddToDo = () => {
   const [desciption, setDesciption] = useState("");
   const email = "Kajalgupta.it@gmail.com";
+  const dispatch = useDispatch();
   const className = "AddToDo";
 
   const handleInputChange = (e) => {
@@ -35,21 +39,20 @@ const AddToDo = ({ updateTheData }) => {
       .then(() => {
         console.log("Added");
         //Call the getData function to fetch data
-        updateTheData();
+        dispatch(ReadList());
       })
-      .catch((err) => console.log("Could not POST due to error: ", err.message));
+      .catch((err) =>
+        console.log("Could not POST due to error: ", err.message)
+      );
   };
 
   return (
     <div className={className}>
-      <label htmlFor="addToDo" className={className + "__label"}>
-        Add a new task to do:
-      </label>
       <input
         type="text"
         name="addToDo"
-        placeholder="Complete work"
-        className={className + "__input inputField"}
+        placeholder="Add a new work"
+        className={className + "__input"}
         onChange={handleInputChange}
         onKeyDown={(e) => {
           if (e.key === "Enter") {
@@ -63,7 +66,7 @@ const AddToDo = ({ updateTheData }) => {
         type="button"
         className={className + "__button"}
       >
-        Add
+        Add to list
       </button>
     </div>
   );

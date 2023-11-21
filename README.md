@@ -1,6 +1,6 @@
 # React + Vite
 
-### live link: https://mainehahu.github.io/To-Do-App-with-API/
+### live link: https://mainehahu.github.io/CRUD-with-API/
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 

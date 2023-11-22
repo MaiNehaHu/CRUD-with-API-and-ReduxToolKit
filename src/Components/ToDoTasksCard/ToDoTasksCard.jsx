@@ -8,8 +8,10 @@ import "./ToDoTasksCard.scss";
 
 const ToDoTasksCard = ({ todo }) => {
   const [editButtonStatus, setEditButtonStatus] = useState(false);
-  const [inputValue, setInputValue] = useState(todo.attributes.desciption);
-
+  const [updateData, setUpdateData] = useState({
+    inputValue: todo.attributes.desciption,
+    done: false,
+  });
   const className = "ToDoTasksCard";
 
   const List = useSelector((state) => {
@@ -27,12 +29,18 @@ const ToDoTasksCard = ({ todo }) => {
     setEditButtonStatus(!editButtonStatus);
   };
 
-  const handleInputChange = (input) => {
-    setInputValue(input);
+  const handleUpdateValues = (e) => {
+    setUpdateData({
+      ...updateData,
+      [e.target.name]: e.target.value,
+    });
   };
 
   useEffect(() => {
-    setInputValue(todo.attributes.desciption);
+    setUpdateData({
+      ...updateData,
+      inputValue: todo.attributes.desciption,
+    });
   }, [List]);
 
   return (
@@ -57,7 +65,7 @@ const ToDoTasksCard = ({ todo }) => {
             {editButtonStatus ? (
               <EditToDo
                 todo={todo}
-                inputValue={inputValue}
+                updateData={updateData}
                 toggleHeadingAndInput={toggleHeadingAndInput}
                 className={className + "__header__buttons__editButton"}
               />
@@ -73,11 +81,11 @@ const ToDoTasksCard = ({ todo }) => {
         <div className={className + "__header"}>
           <input
             type="text"
-            name="editHeading"
-            value={inputValue}
+            name="inputValue"
+            value={updateData.inputValue}
             id="editHeadingInputField"
             className={className + "__header__inputField"}
-            onChange={(e) => handleInputChange(e.target.value)}
+            onChange={handleUpdateValues}
           />
 
           <section className={className + "__header__buttons"}>
@@ -88,7 +96,7 @@ const ToDoTasksCard = ({ todo }) => {
             {editButtonStatus ? (
               <EditToDo
                 todo={todo}
-                inputValue={inputValue}
+                updateData={updateData}
                 toggleHeadingAndInput={toggleHeadingAndInput}
                 className={className + "__header__buttons__editButton"}
               />
@@ -104,8 +112,41 @@ const ToDoTasksCard = ({ todo }) => {
 
       <br />
       <p className={className + "__status"}>
-        {todo.attributes.done ? "✔️ Completed" : "❌ Not Done"}
+        {editButtonStatus ? (
+          <React.Fragment>
+            <label
+              htmlFor="done"
+              className={className + "__status__selectInputLabel"}
+            >
+              Done:{" "}
+            </label>
+            <select
+              onClick={handleUpdateValues}
+              name="done"
+              defaultValue={false}
+              className={className + "__status__selectInput"}
+            >
+              <option
+                value={true}
+                className={className + "__status__selectInput__option"}
+              >
+                Yes
+              </option>
+              <option
+                value={false}
+                className={className + "__status__selectInput__option"}
+              >
+                No
+              </option>
+            </select>
+          </React.Fragment>
+        ) : todo.attributes.done ? (
+          "✔️ Completed"
+        ) : (
+          "❌ Not Done"
+        )}
       </p>
+
       <p className={className + "__createdAt"}>Created: {createdAtDate}</p>
       <p className={className + "__updatedAt"}>Updated: {updatedAtDate}</p>
     </div>

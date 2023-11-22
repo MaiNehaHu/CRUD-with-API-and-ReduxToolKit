@@ -5,7 +5,7 @@ import axios from "axios";
 
 const EditToDo = ({
   todo,
-  inputValue,
+  updateData,
   updateTheData,
   toggleHeadingAndInput,
 }) => {
@@ -16,14 +16,14 @@ const EditToDo = ({
     const updatedData = {
       data: {
         id: todo.id,
-        desciption: inputValue,
-        done: false,
+        desciption: updateData.inputValue,
+        done: updateData.done,
         createdAt: todo.attributes.createdAt,
         email: todo.attributes.email,
         updatedAt: new Date().toISOString(),
       },
     };
-
+    
     try {
       await axios.patch(url, updatedData);
       console.log("Updated");
@@ -31,6 +31,7 @@ const EditToDo = ({
       updateTheData();
     } catch (err) {
       alert("Unable to update due to error.", err.message);
+      console.log("error for value: ", updatedData, ": ", err.message);
     }
   };
 

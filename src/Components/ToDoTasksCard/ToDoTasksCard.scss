@@ -68,6 +68,14 @@
       transform: scale(1.1);
     }
   }
+
+  &__status {
+    &__selectInput {
+      padding: 3px;
+      font-size: medium;
+      border-radius: 5px;
+    }
+  }
 }
 
 @media screen and (max-width: 540px) {
@@ -80,5 +88,23 @@
   .ToDoTasksCard {
     font-size: small;
     padding: 10px;
+    margin-block: 10px;
+
+    &__status {
+      &__selectInput {
+        padding: 3px;
+        font-size: smaller;
+        border-radius: 5px;
+      }
+    }
+
+    &__header {
+      &__inputField {
+        font-size: medium;
+        &:focus {
+          border: 0px;
+        }
+      }
+    }
   }
 }

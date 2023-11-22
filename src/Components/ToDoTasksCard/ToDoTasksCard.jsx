@@ -39,7 +39,12 @@ const ToDoTasksCard = ({ todo }) => {
     <div className={className}>
       {!editButtonStatus ? (
         <header className={className + "__header"}>
-          <h3 className={className + "__header__heading"}>
+          <h3
+            className={className + "__header__heading"}
+            style={{
+              textDecoration: todo.attributes.done ? "line-through" : "none",
+            }}
+          >
             {todo.attributes.desciption}
           </h3>
 

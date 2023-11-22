@@ -1,16 +1,22 @@
 import React, { useEffect, useState } from "react";
 import ToDoTasksCard from "../ToDoTasksCard/ToDoTasksCard";
 import AddToDo from "../AddToDo/AddToDo";
-import { useSelector } from "react-redux";
+import { ReadList } from "../../Store/Slices/ReadSlice";
+import { useDispatch, useSelector } from "react-redux";
 import "./Body.scss";
 
 const Body = () => {
   const [error, setError] = useState(null);
+  const dispatch = useDispatch();
   const className = "Body";
 
   const List = useSelector((state) => {
     return state.ReadingList.data;
   });
+
+  useEffect(() => {
+    dispatch(ReadList());
+  }, [List]);
 
   //Error message
   useEffect(() => {

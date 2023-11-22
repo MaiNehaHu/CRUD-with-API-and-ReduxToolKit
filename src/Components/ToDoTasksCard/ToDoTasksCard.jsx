@@ -1,13 +1,20 @@
 import React, { useEffect, useState } from "react";
 import DeleteToDo from "../DeleteToDo/DeleteToDo";
 import EditToDo from "../EditToDo/EditToDo";
+
+import { useSelector } from "react-redux";
 import { FiEdit } from "react-icons/fi";
 import "./ToDoTasksCard.scss";
 
 const ToDoTasksCard = ({ todo }) => {
   const [editButtonStatus, setEditButtonStatus] = useState(false);
   const [inputValue, setInputValue] = useState(todo.attributes.desciption);
+
   const className = "ToDoTasksCard";
+
+  const List = useSelector((state) => {
+    return state.ReadingList.data;
+  });
 
   //converting into human readable data and time
   const createdAt = new Date(todo.attributes.createdAt);
@@ -26,7 +33,7 @@ const ToDoTasksCard = ({ todo }) => {
 
   useEffect(() => {
     setInputValue(todo.attributes.desciption);
-  }, [todo]);
+  }, [List]);
 
   return (
     <div className={className}>

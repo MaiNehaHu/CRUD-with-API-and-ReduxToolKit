@@ -73,10 +73,12 @@
 @media screen and (max-width: 540px) {
   .ToDoTasksCard {
     font-size: smaller;
+  }
+}
 
-    &__buttons {
-      border-top-right-radius: 10px;
-      border-bottom-right-radius: 10px;
-    }
+@media screen and (max-width: 450px) {
+  .ToDoTasksCard {
+    font-size: small;
+    padding: 10px;
   }
 }

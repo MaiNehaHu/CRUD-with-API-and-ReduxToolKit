@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./App.scss";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Body from "./Components/Body/Body";
@@ -10,17 +10,13 @@ import Header from "./Components/Header/Header";
 function App() {
   const dispatch = useDispatch();
 
-  function init() {
+  useEffect(() => {
     dispatch(ReadList());
-  }
-
-  window.addEventListener("load", () => {
-    init();
-  });
+  }, []);
 
   return (
     <React.Fragment>
-      <BrowserRouter basename="/CRUD-with-API">
+      <BrowserRouter basename="/CRUD-with-API-and-ReduxToolKit">
         <Routes>
           <Route
             path="/"

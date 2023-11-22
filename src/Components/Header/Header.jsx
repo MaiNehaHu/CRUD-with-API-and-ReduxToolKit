@@ -10,7 +10,7 @@ const Header = () => {
 
   const notDoneCount = List.reduce((acc, curr) => {
     if (curr.attributes.done === false) {
-      return acc = acc + 1;
+      return (acc = acc + 1);
     }
     return acc;
   }, 0);
@@ -19,7 +19,7 @@ const Header = () => {
     <header htmlFor="addToDo" className={className + "__header"}>
       <h1>
         <span id="count">{notDoneCount} </span>
-        <span>Tasks to do</span>
+        <span>{notDoneCount == 1 ? "Task" : "Tasks"} to do</span>
       </h1>
     </header>
   );
